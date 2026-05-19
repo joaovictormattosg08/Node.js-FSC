@@ -1,0 +1,12 @@
+{
+  "name": "@jao/fullstackclub",
+  "version": "1.0.0",
+  "description": "Módulo feito e publicado no FSC",
+  "license": "ISC",
+  "author": "João Victor",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
