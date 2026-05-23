@@ -16,7 +16,7 @@ const loginUser = (email, password) => {
 
 const getUserVideos = () => {
     return new Promise((resolve, reject) => {
-        const error = false;
+        const error = true;
         setTimeout(() => {
             if (error) {
                 return reject("Videos não encontrados")
@@ -27,15 +27,17 @@ const getUserVideos = () => {
     })
 }
 
+const getUserData = async () => {
+    try {
+        const user = await loginUser("Joao@gmail.com", "12345678")
 
-const user = loginUser("teste@gmail.com", "password1234").then((user) => {
-    console.log("Usuario logado com sucesso!")
-    console.log("Dados do usuario", user)
-    getUserVideos().then((userVideos) => {
-        console.log("Videos recuperados com sucesso: " + userVideos)
-    }).catch((erroMessage) => {
-        console.log(erroMessage)
-    })
-}).catch((erroMessage) => {
-    console.log(erroMessage)
-})
+        console.log(user)
+
+        const userVideos = await getUserVideos();
+        console.log(userVideos)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+getUserData()
